@@ -27,11 +27,13 @@
     '<div class="fld full"><label for="{id}-message">Additional requirements</label><textarea id="{id}-message" name="message" rows="3" placeholder="Additional requirements..."></textarea></div>' +
     '<div class="fsub"><button type="submit" class="btn wht"><span class="l">Submit</span><span class="ar l">→</span></button><span class="note" role="status"></span></div>';
 
+  var FORM_HEAD = '<div class="fhead"><h3>Enquire Now</h3></div>';
+
   $$('form.form').forEach(function (f) {
-    f.innerHTML = FIELDS.replace(/\{id\}/g, f.id);
+    var head = (f.id === 'footer-form') ? FORM_HEAD : '';
+    f.innerHTML = head + FIELDS.replace(/\{id\}/g, f.id);
     f.addEventListener('submit', function (e) { e.preventDefault(); submit(f); });
   });
-
   function submit(f) {
     var btn = $('button[type=submit]', f), label = $('.l', btn), note = $('.note', f);
     var v = function (n) { return (f.elements[n].value || '').trim(); };
@@ -105,11 +107,12 @@
 
   /* ---------- PRODUCT SLIDER ---------- */
   var P = [
-    ['Optima', 'image1.png', 'The all new OPTIMA redefines simplicity giving you vertical mobility solution with a range of technologically advanced features with German craftsmanship at its heart.'],
-    ['Vertix', 'image2.png', 'VERTIX combines cutting-edge vertical transportation technology with sleek design, offering premium performance and energy efficiency for modern buildings.'],
-    ['Greentek', 'image3.png', 'GREENTEK represents our commitment to sustainable mobility solutions, featuring eco-friendly technology and renewable energy integration.'],
-    ['Hydratek', 'image1.png', 'HYDRATEK delivers powerful hydraulic elevation systems with exceptional load capacity and smooth operation for low to mid-rise applications.'],
-    ['Villa matek', 'image2.png', 'VILLA MATEK is specially designed for residential applications, combining elegant aesthetics with compact design for luxury homes.']
+    ['Optima', 'Optima.webp', 'The all new OPTIMA redefines simplicity giving you vertical mobility solution with a range of technologically advanced features with German craftsmanship at its heart.'],
+    ['Vertix', 'Vertix.webp', 'VERTIX combines cutting-edge vertical transportation technology with sleek design, offering premium performance and energy efficiency for modern buildings.'],
+    ['Greentek', 'Greentek.webp', 'GREENTEK represents our commitment to sustainable mobility solutions, featuring eco-friendly technology and renewable energy integration.'],
+    ['Hydratek', 'HYDRATEK.webp', 'HYDRATEK delivers powerful hydraulic elevation systems with exceptional load capacity and smooth operation for low to mid-rise applications.'],
+    ['Villa matek', 'Villa-matek.webp', 'VILLA MATEK is specially designed for residential applications, combining elegant aesthetics with compact design for luxury homes.'],
+    ['EVO', 'EVO.webp', 'EVO is our next-generation elevator, built for modern spaces with refined design, smooth performance and intelligent features.']
   ];
   var pi = 0, tabs = $$('#tabs li'), img = $('#pimg'), desc = $('#pdesc'), tag = $('#ptag');
   function show(i) {

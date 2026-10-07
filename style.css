@@ -464,7 +464,7 @@ h2.t {
 .hero .in {
     position: relative;
     z-index: 2;
-    padding: 0px 0 0px clamp(24px, 9vw, 180px);
+    padding: 0px 0 0px clamp(24px, 5vw, 180px);
     padding-right: 24px;
     max-width: 1200px
 }
@@ -856,7 +856,8 @@ h2.t {
     grid-template-columns: .8fr 1.2fr;
     gap: clamp(40px, 6vw, 110px);
     align-items: center;
-    overflow: hidden
+    overflow: hidden;
+    border-bottom: 1px solid #ffffff3b;
 }
 
 .tw {
@@ -1359,12 +1360,16 @@ h2.t {
     }
 
     .hero {
-        align-items: flex-end
+        align-items: flex-end;
+        min-height: 75vh !important;
+    }
+    .hero .cta{
+        padding-bottom: 2rem;
     }
 
     .hero .in {
         max-width: 100%;
-        padding: 110px 7vw 90px
+        /* padding: 110px 7vw 90px */
     }
 
     .hero .bg img {
@@ -1444,7 +1449,7 @@ h2.t {
 
     .fgrid,
     .wgrid {
-        grid-template-columns: 1fr
+        grid-template-columns: 1fr 1fr;
     }
 
     .fc {
@@ -1537,4 +1542,120 @@ h2.t {
         right: 16px;
         bottom: 78px
     }
+}
+
+/* ---------- Contact form: clean professional card ---------- */
+#footer-form {
+    background: #fff;
+    padding: clamp(24px, 2.6vw, 40px);
+    border-radius: 8px;
+    border-top: 3px solid var(--gold2);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, .35);
+    align-self: center;
+    gap: 18px 16px;
+}
+
+#footer-form .fld {
+    gap: 6px;
+}
+
+#footer-form .fld label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    color: #4a4f57;
+}
+
+#footer-form .fld input,
+#footer-form .fld select,
+#footer-form .fld textarea {
+    height: 44px;
+    padding: 0 14px;
+    font-size: 14px;
+    color: #1b1f24;
+    background-color: #fff;
+    border: 1px solid #d5d9df;
+    border-radius: 6px;
+    transition: border-color .2s, box-shadow .2s;
+}
+
+#footer-form .fld textarea {
+    height: auto;
+    min-height: 88px;
+    padding: 12px 14px;
+    line-height: 1.5;
+}
+
+#footer-form .fld select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23666' stroke-width='1.4' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+}
+
+#footer-form .fld select:invalid {
+    color: #8b919a;
+}
+
+#footer-form .fld select option {
+    color: #111;
+}
+
+#footer-form .fld input::placeholder,
+#footer-form .fld textarea::placeholder {
+    color: #9aa0a8;
+}
+
+#footer-form .fld input:hover,
+#footer-form .fld select:hover,
+#footer-form .fld textarea:hover {
+    border-color: #b6bcc5;
+}
+
+#footer-form .fld input:focus,
+#footer-form .fld select:focus,
+#footer-form .fld textarea:focus {
+    border-color: #171717;
+    box-shadow: 0 0 0 3px rgba(23, 23, 23, .08);
+}
+
+/* Submit */
+#footer-form .fsub {
+    margin-top: 4px;
+}
+
+#footer-form .btn.wht {
+    background: #171717;
+    color: #fff;
+    border-color: #171717;
+    border-radius: 6px;
+    padding: 14px 32px;
+}
+
+#footer-form .btn.wht .fill {
+    background: #fff;
+}
+
+#footer-form .btn.wht:hover {
+    color: #171717;
+}
+
+#footer-form .note.ok { color: #1e8e4e; }
+#footer-form .note.er { color: #d93636; }
+
+/* Footer form heading */
+#footer-form .fhead {
+    grid-column: 1 / -1;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #e8eaee;
+}
+
+#footer-form .fhead h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(24px, 2.2vw, 32px);
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: -.01em;
+    color: #171717;
 }
